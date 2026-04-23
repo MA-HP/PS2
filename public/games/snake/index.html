@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake Versus</title>
+  <link rel="stylesheet" href="/games/_shared/game-shell.css" />
+</head>
+<body>
+  <section class="panel">
+    <div class="top">
+      <div class="title">Snake Versus</div>
+      <div class="meta">Room: <span id="roomLabel">...</span></div>
+    </div>
+    <div class="main">
+      <canvas id="game" width="640" height="480"></canvas>
+      <aside class="sidebar">
+        <div class="score" id="meScore">Moi: 0</div>
+        <div class="score" id="oppScore">Adversaire: 0</div>
+        <button class="btn" id="backBtn">Quitter vers Hub</button>
+        <div class="controls" id="controls"></div>
+        <h4>Logs</h4>
+        <div class="log" id="log"></div>
+      </aside>
+    </div>
+  </section>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/games/_shared/game-shell.js"></script>
+  <script src="/games/snake/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "retro-arcade-versus",
+  "version": "1.0.0",
+  "description": "Plateforme multijoueur rétro (XP x PS2) avec Socket.io",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
