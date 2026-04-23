@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetroNet Arena - Hub</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="desktop-bg"></div>
+
+    <header class="window title-window">
+      <div class="window-title-bar">
+        <span>RetroNet Arena.exe</span>
+        <div class="window-controls">
+          <button>_</button>
+          <button>□</button>
+          <button>✕</button>
+        </div>
+      </div>
+      <div class="window-content">
+        <h1>🎮 RetroNet Arena</h1>
+        <p>Choisis ton jeu rétro et affronte un adversaire en 1v1 en temps réel.</p>
+      </div>
+    </header>
+
+    <main class="window hub-window">
+      <div class="window-title-bar">
+        <span>Game Hub</span>
+      </div>
+      <div class="window-content">
+        <div class="controls">
+          <label for="username">Pseudo</label>
+          <input id="username" type="text" maxlength="20" placeholder="JoueurXP" />
+          <div class="status" id="status">Prêt à matcher.</div>
+        </div>
+
+        <section class="games-grid" id="gamesGrid">
+          <button class="game-card" data-game="tetris">
+            <h2>Tetris</h2>
+            <p>Stack & duel</p>
+          </button>
+          <button class="game-card" data-game="bomberman">
+            <h2>Bomberman</h2>
+            <p>Explosif 1v1</p>
+          </button>
+          <button class="game-card" data-game="pacman">
+            <h2>Pac-Man</h2>
+            <p>Maze versus</p>
+          </button>
+          <button class="game-card" data-game="pinball">
+            <h2>Pinball</h2>
+            <p>Score battle</p>
+          </button>
+          <button class="game-card" data-game="snake">
+            <h2>Snake</h2>
+            <p>Last snake alive</p>
+          </button>
+        </section>
+      </div>
+    </main>
+
+    <section class="window room-window" id="roomPanel">
+      <div class="window-title-bar">
+        <span>Salon Multiplayer</span>
+      </div>
+      <div class="window-content">
+        <p id="matchInfo">Aucun match en cours.</p>
+        <div class="chat-box" id="chatBox"></div>
+        <div class="chat-input-row">
+          <input id="chatInput" type="text" placeholder="Message rapide..." />
+          <button id="sendChatBtn">Envoyer</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="taskbar">
+      <button class="start-btn">Démarrer</button>
+      <div class="taskbar-center">RetroNet Arena - Connected</div>
+      <div class="clock" id="clock"></div>
+    </footer>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
