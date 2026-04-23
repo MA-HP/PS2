@@ -18,11 +18,24 @@ PS2/
    │  └─ main.js
    ├─ assets/
    └─ games/
-      ├─ tetris/index.html
-      ├─ bomberman/index.html
-      ├─ pacman/index.html
-      ├─ pinball/index.html
-      └─ snake/index.html
+      ├─ _shared/
+      │  ├─ game-shell.css
+      │  └─ game-shell.js
+      ├─ tetris/
+      │  ├─ index.html
+      │  └─ game.js
+      ├─ bomberman/
+      │  ├─ index.html
+      │  └─ game.js
+      ├─ pacman/
+      │  ├─ index.html
+      │  └─ game.js
+      ├─ pinball/
+      │  ├─ index.html
+      │  └─ game.js
+      └─ snake/
+         ├─ index.html
+         └─ game.js
 ```
 
 ## Lancer en local
@@ -48,7 +61,15 @@ ngrok http 3000
 
 3. Utiliser l'URL HTTPS fournie par ngrok pour connecter des joueurs distants.
 
-## Événements Socket.io (socle multijoueur)
+## Gameplay implémenté
+
+- **Tetris** : chute de pièces, rotation, suppression de lignes, score race 1v1.
+- **Bomberman** : déplacement sur grille, pose de bombes, explosions en croix, duel de score.
+- **Pac-Man** : collecte de pellets dans un labyrinthe, course au score.
+- **Pinball** : style arcade (paddle + balle + briques), course au score.
+- **Snake** : serpent, nourriture, croissance, duel de score en temps réel.
+
+## Événements Socket.io
 
 - `queue:join` : entrée en file pour un jeu.
 - `queue:waiting` : en attente d'adversaire.

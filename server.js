@@ -92,6 +92,29 @@ io.on('connection', (socket) => {
     }
   });
 
+
+  socket.on('room:rejoin', ({ roomId, username }) => {
+    const room = rooms.get(roomId);
+    if (!room) {
+      socket.emit('queue:error', { message: 'Salle introuvable.' });
+      return;
+    }
+
+    const existingPlayer = room.players.find((p) => p.socketId === socket.id);
+    if (!existingPlayer) {
+      room.players.push({ socketId: socket.id, username: username?.trim() || `Player-${socket.id.slice(0, 4)}` });
+    }
+
+    socket.join(roomId);
+    socket.data.currentRoomId = roomId;
+    io.to(roomId).emit('match:found', {
+      roomId,
+      game: room.game,
+      players: room.players,
+      startedAt: new Date().toISOString()
+    });
+  });
+
   socket.on('game:update', ({ roomId, payload }) => {
     const room = rooms.get(roomId);
     if (!room) return;

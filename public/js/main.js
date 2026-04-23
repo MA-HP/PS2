@@ -72,8 +72,8 @@ socket.on('match:found', ({ roomId, game, players }) => {
   matchInfo.textContent = `Salon: ${roomId} | Joueurs: ${players.map((p) => p.username).join(' vs ')}`;
   pushChat('Système: Match démarré. Bonne chance !');
 
-  // Ici on redirigera vers le moteur du jeu spécifique.
-  // window.location.href = `/games/${game}/index.html?room=${roomId}`;
+  const username = encodeURIComponent(usernameInput.value.trim() || 'Joueur');
+  window.location.href = `/games/${game}/index.html?room=${roomId}&username=${username}`;
 });
 
 socket.on('chat:message', ({ username, message }) => {
