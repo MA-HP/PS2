@@ -61,7 +61,7 @@ ngrok http 3000
 
 3. Utiliser l'URL HTTPS fournie par ngrok pour connecter des joueurs distants.
 
-## Gameplay implémenté
+## Gameplay implémenté (live versus)
 
 - **Tetris** : chute de pièces, rotation, suppression de lignes, score race 1v1.
 - **Bomberman** : déplacement sur grille, pose de bombes, explosions en croix, duel de score.
@@ -78,3 +78,12 @@ ngrok http 3000
 - `game:event` : évènements gameplay personnalisés.
 - `chat:message` : chat en salon.
 - `match:ended` : fin anticipée (déconnexion/quitter).
+
+
+## Mécaniques live supplémentaires
+
+- Tetris: envoi de garbage lines lors de doubles lignes et plus.
+- Bomberman: poses de bombes synchronisées via événements temps réel.
+- Pac-Man: power pellets appliquent un stun à l'adversaire.
+- Pinball: combo de briques applique un debuff de paddle à l'adversaire.
+- Snake: collisions/food synchronisés et annonce de vainqueur de manche.

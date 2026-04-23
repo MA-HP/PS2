@@ -102,7 +102,15 @@ io.on('connection', (socket) => {
 
     const existingPlayer = room.players.find((p) => p.socketId === socket.id);
     if (!existingPlayer) {
-      room.players.push({ socketId: socket.id, username: username?.trim() || `Player-${socket.id.slice(0, 4)}` });
+      const reconnectingByName = room.players.find((p) => p.username === (username?.trim() || ''));
+      if (reconnectingByName) {
+        reconnectingByName.socketId = socket.id;
+      } else if (room.players.length < 2) {
+        room.players.push({ socketId: socket.id, username: username?.trim() || `Player-${socket.id.slice(0, 4)}` });
+      } else {
+        socket.emit('queue:error', { message: 'Salle pleine.' });
+        return;
+      }
     }
 
     socket.join(roomId);
